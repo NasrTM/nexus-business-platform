@@ -215,6 +215,16 @@ const STR = {
     chat_s2: "كم تكلفة الاشتراك؟",
     chat_s3: "كيف أبدأ تجربتي المجانية؟",
     chat_powered: "مدعوم بـ Nexus AI",
+    chat_settings: "إعدادات الذكاء الاصطناعي",
+    chat_key_label: "مفتاح Anthropic API الخاص بك",
+    chat_key_placeholder: "sk-ant-...",
+    chat_key_help: "أدخل مفتاحك الشخصي من console.anthropic.com لتفعيل ذكاء اصطناعي حقيقي متصل بالإنترنت. المفتاح يُحفظ في متصفحك فقط لهذه الجلسة، ولا يُرسل لأي مكان تاني غير Anthropic مباشرة.",
+    chat_key_save: "حفظ وتفعيل",
+    chat_key_clear: "إزالة المفتاح (رجوع لوضع Demo)",
+    chat_ai_live: "ذكاء اصطناعي متصل",
+    chat_ai_demo: "وضع تجريبي (Demo)",
+    chat_key_invalid: "المفتاح غير صحيح أو غير مفعّل. تأكد من نسخه بالكامل من console.anthropic.com",
+    chat_key_error: "حدث خطأ في الاتصال بالذكاء الاصطناعي. سيتم الرد بالوضع التجريبي.",
     auth_welcome: "أهلاً بك في نِكسوس",
     auth_sub: "سجّل دخولك أو أنشئ حساب جديد للوصول لكل التطبيقات",
     auth_login: "تسجيل الدخول", auth_signup: "إنشاء حساب", auth_logout: "تسجيل الخروج",
@@ -224,6 +234,20 @@ const STR = {
     auth_login_here: "سجّل دخولك من هنا", auth_signup_here: "أنشئ حساب جديد",
     auth_name_req: "الاسم مطلوب", auth_email_req: "البريد مطلوب", auth_email_invalid: "بريد غير صالح", auth_pw_req: "كلمة المرور مطلوبة", auth_pw_short: "كلمة المرور ٦ أحرف على الأقل", auth_pw_mismatch: "كلمتا المرور غير متطابقتين",
     auth_email_exists: "هذا البريد مسجّل بالفعل", auth_wrong: "بريد أو كلمة مرور خاطئة",
+    auth_forgot: "نسيت كلمة المرور؟",
+    auth_forgot_title: "استعادة كلمة المرور",
+    auth_forgot_sub: "أدخل بريدك الإلكتروني وسنرسل لك رمز التحقق",
+    auth_no_account: "لا يوجد حساب مسجّل بهذا البريد",
+    auth_send_code: "إرسال رمز التحقق",
+    auth_code_sent: "تم إرسال رمز التحقق! (في بيئة العرض هذه، الرمز يظهر هنا مباشرة بدل البريد الفعلي):",
+    auth_enter_code: "رمز التحقق",
+    auth_code_wrong: "رمز التحقق غير صحيح",
+    auth_new_pw: "كلمة المرور الجديدة",
+    auth_confirm_new_pw: "تأكيد كلمة المرور الجديدة",
+    auth_reset_btn: "تغيير كلمة المرور",
+    auth_reset_success: "تم تغيير كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن",
+    auth_back_login: "العودة لتسجيل الدخول",
+    auth_verify_code_btn: "تأكيد الرمز",
     auth_secure: "بياناتك محفوظة على جهازك فقط — آمنة تماماً",
     welcome_back: "أهلاً بعودتك",
     back_home: "العودة للرئيسية",
@@ -243,8 +267,12 @@ const STR = {
     inventory_cols: ["المنتج", "الكمية", "السعر", "المستودع", "الحالة"],
     accounting_title: "المحاسبة والفواتير",
     accounting_sub: "الفواتير والمدفوعات والتقارير المالية",
+    accounting_cols: ["رقم الفاتورة", "العميل", "المبلغ", "التاريخ", "الحالة"],
     hr_title: "الموارد البشرية",
     hr_sub: "الموظفون والحضور والإجازات",
+    hr_cols: ["الاسم", "الوظيفة", "البريد", "الحالة"],
+    manufacturing_cols: ["أمر الإنتاج", "المنتج", "الكمية", "الحالة"],
+    generic_cols: ["الاسم", "الوصف", "القيمة", "الحالة"],
     sales_title: "المبيعات والتجارة",
     sales_sub: "أوامر البيع والمتجر الإلكتروني",
     purchasing_title: "المشتريات",
@@ -352,6 +380,16 @@ const STR = {
     chat_s2: "How much does it cost?",
     chat_s3: "How do I start my free trial?",
     chat_powered: "Powered by Nexus AI",
+    chat_settings: "AI Settings",
+    chat_key_label: "Your Anthropic API key",
+    chat_key_placeholder: "sk-ant-...",
+    chat_key_help: "Enter your personal key from console.anthropic.com to enable a real, internet-connected AI. The key is stored only in your browser for this session and is sent directly to Anthropic — nowhere else.",
+    chat_key_save: "Save & activate",
+    chat_key_clear: "Remove key (back to Demo mode)",
+    chat_ai_live: "AI connected",
+    chat_ai_demo: "Demo mode",
+    chat_key_invalid: "Invalid or inactive key. Make sure you copied it fully from console.anthropic.com",
+    chat_key_error: "Something went wrong reaching the AI. Falling back to demo mode.",
     auth_welcome: "Welcome to Nexus",
     auth_sub: "Log in or create a new account to access all apps",
     auth_login: "Log in", auth_signup: "Sign up", auth_logout: "Log out",
@@ -361,6 +399,20 @@ const STR = {
     auth_login_here: "Log in here", auth_signup_here: "Create a new account",
     auth_name_req: "Name is required", auth_email_req: "Email is required", auth_email_invalid: "Invalid email", auth_pw_req: "Password is required", auth_pw_short: "Password must be at least 6 characters", auth_pw_mismatch: "Passwords do not match",
     auth_email_exists: "This email is already registered", auth_wrong: "Wrong email or password",
+    auth_forgot: "Forgot password?",
+    auth_forgot_title: "Reset your password",
+    auth_forgot_sub: "Enter your email and we'll send you a verification code",
+    auth_no_account: "No account is registered with this email",
+    auth_send_code: "Send verification code",
+    auth_code_sent: "Verification code sent! (In this demo environment, the code is shown here instead of a real email):",
+    auth_enter_code: "Verification code",
+    auth_code_wrong: "Incorrect verification code",
+    auth_new_pw: "New password",
+    auth_confirm_new_pw: "Confirm new password",
+    auth_reset_btn: "Reset password",
+    auth_reset_success: "Password changed successfully! You can log in now",
+    auth_back_login: "Back to login",
+    auth_verify_code_btn: "Verify code",
     auth_secure: "Your data is stored on your device only — fully secure",
     welcome_back: "Welcome back",
     back_home: "Back to home",
@@ -376,7 +428,11 @@ const STR = {
     inventory_title: "Inventory", inventory_sub: "Products, quantities, warehouses",
     inventory_cols: ["Product", "Quantity", "Price", "Warehouse", "Status"],
     accounting_title: "Accounting & Invoicing", accounting_sub: "Invoices, payments, financial reports",
+    accounting_cols: ["Invoice #", "Client", "Amount", "Date", "Status"],
     hr_title: "Human Resources", hr_sub: "Employees, attendance, leaves",
+    hr_cols: ["Name", "Role", "Email", "Status"],
+    manufacturing_cols: ["Order #", "Product", "Quantity", "Status"],
+    generic_cols: ["Name", "Description", "Value", "Status"],
     sales_title: "Sales & Commerce", sales_sub: "Sales orders and e-commerce",
     purchasing_title: "Purchasing", purchasing_sub: "Vendors and purchase orders",
     marketing_title: "Marketing Automation", marketing_sub: "Campaigns and customer journeys",
@@ -464,6 +520,16 @@ function AuthScreen({ t, lang, onLogin, onClose }) {
   const [name, setName] = useState(""); const [email, setEmail] = useState("");
   const [pw, setPw] = useState(""); const [confirm, setConfirm] = useState("");
   const [error, setError] = useState(""); const [loading, setLoading] = useState(false);
+  const [forgotStep, setForgotStep] = useState(1);
+  const [genCode, setGenCode] = useState("");
+  const [enteredCode, setEnteredCode] = useState("");
+  const [newPw, setNewPw] = useState(""); const [newConfirm, setNewConfirm] = useState("");
+  const [info, setInfo] = useState("");
+
+  const resetForgotState = () => {
+    setForgotStep(1); setGenCode(""); setEnteredCode(""); setNewPw(""); setNewConfirm(""); setInfo("");
+  };
+
   const submit = (e) => {
     e.preventDefault(); setError("");
     if (mode === "signup" && !name.trim()) return setError(t.auth_name_req);
@@ -487,6 +553,48 @@ function AuthScreen({ t, lang, onLogin, onClose }) {
       }
     }, 400);
   };
+
+  const submitForgotEmail = (e) => {
+    e.preventDefault(); setError("");
+    if (!email.trim()) return setError(t.auth_email_req);
+    if (!isValidEmail(email)) return setError(t.auth_email_invalid);
+    setLoading(true);
+    setTimeout(() => {
+      const users = loadUsers();
+      const u = users[email.toLowerCase()];
+      if (!u) { setLoading(false); return setError(t.auth_no_account); }
+      const code = String(Math.floor(100000 + Math.random() * 900000));
+      setGenCode(code);
+      setLoading(false);
+      setForgotStep(2);
+    }, 400);
+  };
+
+  const submitForgotCode = (e) => {
+    e.preventDefault(); setError("");
+    if (!enteredCode.trim()) return setError(t.auth_enter_code);
+    if (enteredCode.trim() !== genCode) return setError(t.auth_code_wrong);
+    setForgotStep(3);
+  };
+
+  const submitNewPw = (e) => {
+    e.preventDefault(); setError("");
+    if (!newPw) return setError(t.auth_pw_req);
+    if (newPw.length < 6) return setError(t.auth_pw_short);
+    if (newPw !== newConfirm) return setError(t.auth_pw_mismatch);
+    setLoading(true);
+    setTimeout(() => {
+      const users = loadUsers();
+      const key = email.toLowerCase();
+      if (!users[key]) { setLoading(false); return setError(t.auth_no_account); }
+      users[key] = { ...users[key], pwHash: hashPw(newPw) };
+      saveUsers(users);
+      setLoading(false);
+      setInfo(t.auth_reset_success);
+      setForgotStep(4);
+    }, 400);
+  };
+
   const inpStyle = { background: "var(--bg-soft)", border: "1px solid var(--border)", color: "var(--text)" };
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" style={{ background: "rgba(2,6,23,0.85)", backdropFilter: "blur(8px)" }} dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -494,43 +602,116 @@ function AuthScreen({ t, lang, onLogin, onClose }) {
         <div className="p-7 sm:p-8">
           <div className="mb-6 text-center">
             <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl text-2xl font-bold text-white shadow-lg" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>ن</div>
-            <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>{t.auth_welcome}</h2>
-            <p className="mt-1 text-xs" style={{ color: "var(--text-mute)" }}>{t.auth_sub}</p>
+            <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>{mode === "forgot" ? t.auth_forgot_title : t.auth_welcome}</h2>
+            <p className="mt-1 text-xs" style={{ color: "var(--text-mute)" }}>{mode === "forgot" ? t.auth_forgot_sub : t.auth_sub}</p>
           </div>
-          <div className="mb-5 flex gap-1 rounded-xl p-1" style={{ background: "var(--bg-soft)" }}>
-            <button type="button" onClick={() => { setMode("login"); setError(""); }} className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${mode === "login" ? "text-white" : ""}`} style={mode === "login" ? { background: "var(--primary)" } : { color: "var(--text-soft)" }}>{t.auth_login}</button>
-            <button type="button" onClick={() => { setMode("signup"); setError(""); }} className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${mode === "signup" ? "text-white" : ""}`} style={mode === "signup" ? { background: "var(--primary)" } : { color: "var(--text-soft)" }}>{t.auth_signup}</button>
-          </div>
-          <form onSubmit={submit} className="space-y-3">
-            {mode === "signup" && (
-              <label className="block">
-                <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_name}</span>
-                <input className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={name} onChange={(e) => setName(e.target.value)} placeholder={t.auth_name} />
-              </label>
-            )}
-            <label className="block">
-              <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_email}</span>
-              <input type="email" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
-            </label>
-            <label className="block">
-              <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_password}</span>
-              <input type="password" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={pw} onChange={(e) => setPw(e.target.value)} placeholder="••••••••" />
-            </label>
-            {mode === "signup" && (
-              <label className="block">
-                <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_confirm}</span>
-                <input type="password" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="••••••••" />
-              </label>
-            )}
-            {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs text-rose-400">{error}</div>}
-            <button type="submit" disabled={loading} className="ripple-btn w-full rounded-xl px-4 py-3 text-sm font-bold text-white shadow-lg transition disabled:opacity-60" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
-              {loading ? "…" : (mode === "login" ? t.auth_login_btn : t.auth_signup_btn)}
-            </button>
-          </form>
-          <div className="mt-4 text-center text-xs" style={{ color: "var(--text-mute)" }}>
-            {mode === "login" ? t.auth_no + " " : t.auth_have + " "}
-            <button type="button" onClick={() => { setMode(mode === "login" ? "signup" : "login"); setError(""); }} className="font-semibold" style={{ color: "var(--primary)" }}>{mode === "login" ? t.auth_signup_here : t.auth_login_here}</button>
-          </div>
+
+          {mode !== "forgot" && (
+            <div className="mb-5 flex gap-1 rounded-xl p-1" style={{ background: "var(--bg-soft)" }}>
+              <button type="button" onClick={() => { setMode("login"); setError(""); }} className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${mode === "login" ? "text-white" : ""}`} style={mode === "login" ? { background: "var(--primary)" } : { color: "var(--text-soft)" }}>{t.auth_login}</button>
+              <button type="button" onClick={() => { setMode("signup"); setError(""); }} className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${mode === "signup" ? "text-white" : ""}`} style={mode === "signup" ? { background: "var(--primary)" } : { color: "var(--text-soft)" }}>{t.auth_signup}</button>
+            </div>
+          )}
+
+          {mode === "login" || mode === "signup" ? (
+            <>
+              <form onSubmit={submit} className="space-y-3">
+                {mode === "signup" && (
+                  <label className="block">
+                    <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_name}</span>
+                    <input className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={name} onChange={(e) => setName(e.target.value)} placeholder={t.auth_name} />
+                  </label>
+                )}
+                <label className="block">
+                  <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_email}</span>
+                  <input type="email" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
+                </label>
+                <label className="block">
+                  <span className="mb-1 flex items-center justify-between text-xs font-medium" style={{ color: "var(--text-soft)" }}>
+                    <span>{t.auth_password}</span>
+                    {mode === "login" && (
+                      <button type="button" onClick={() => { setMode("forgot"); setError(""); resetForgotState(); }} className="font-semibold" style={{ color: "var(--primary)" }}>{t.auth_forgot}</button>
+                    )}
+                  </span>
+                  <input type="password" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={pw} onChange={(e) => setPw(e.target.value)} placeholder="••••••••" />
+                </label>
+                {mode === "signup" && (
+                  <label className="block">
+                    <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_confirm}</span>
+                    <input type="password" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="••••••••" />
+                  </label>
+                )}
+                {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs text-rose-400">{error}</div>}
+                <button type="submit" disabled={loading} className="ripple-btn w-full rounded-xl px-4 py-3 text-sm font-bold text-white shadow-lg transition disabled:opacity-60" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
+                  {loading ? "…" : (mode === "login" ? t.auth_login_btn : t.auth_signup_btn)}
+                </button>
+              </form>
+              <div className="mt-4 text-center text-xs" style={{ color: "var(--text-mute)" }}>
+                {mode === "login" ? t.auth_no + " " : t.auth_have + " "}
+                <button type="button" onClick={() => { setMode(mode === "login" ? "signup" : "login"); setError(""); }} className="font-semibold" style={{ color: "var(--primary)" }}>{mode === "login" ? t.auth_signup_here : t.auth_login_here}</button>
+              </div>
+            </>
+          ) : (
+            <>
+              {forgotStep === 1 && (
+                <form onSubmit={submitForgotEmail} className="space-y-3">
+                  <label className="block">
+                    <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_email}</span>
+                    <input type="email" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
+                  </label>
+                  {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs text-rose-400">{error}</div>}
+                  <button type="submit" disabled={loading} className="ripple-btn w-full rounded-xl px-4 py-3 text-sm font-bold text-white shadow-lg transition disabled:opacity-60" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
+                    {loading ? "…" : t.auth_send_code}
+                  </button>
+                </form>
+              )}
+              {forgotStep === 2 && (
+                <form onSubmit={submitForgotCode} className="space-y-3">
+                  <div className="rounded-lg border px-3 py-2 text-xs" style={{ borderColor: "var(--border)", background: "var(--bg-soft)", color: "var(--text-soft)" }}>
+                    {t.auth_code_sent} <span className="font-mono text-base font-bold" style={{ color: "var(--primary)" }} dir="ltr">{genCode}</span>
+                  </div>
+                  <label className="block">
+                    <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_enter_code}</span>
+                    <input type="text" dir="ltr" inputMode="numeric" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={enteredCode} onChange={(e) => setEnteredCode(e.target.value)} placeholder="000000" />
+                  </label>
+                  {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs text-rose-400">{error}</div>}
+                  <button type="submit" className="ripple-btn w-full rounded-xl px-4 py-3 text-sm font-bold text-white shadow-lg transition" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
+                    {t.auth_verify_code_btn}
+                  </button>
+                </form>
+              )}
+              {forgotStep === 3 && (
+                <form onSubmit={submitNewPw} className="space-y-3">
+                  <label className="block">
+                    <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_new_pw}</span>
+                    <input type="password" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={newPw} onChange={(e) => setNewPw(e.target.value)} placeholder="••••••••" />
+                  </label>
+                  <label className="block">
+                    <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.auth_confirm_new_pw}</span>
+                    <input type="password" dir="ltr" className="w-full rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2" style={inpStyle} value={newConfirm} onChange={(e) => setNewConfirm(e.target.value)} placeholder="••••••••" />
+                  </label>
+                  {error && <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs text-rose-400">{error}</div>}
+                  <button type="submit" disabled={loading} className="ripple-btn w-full rounded-xl px-4 py-3 text-sm font-bold text-white shadow-lg transition disabled:opacity-60" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
+                    {loading ? "…" : t.auth_reset_btn}
+                  </button>
+                </form>
+              )}
+              {forgotStep === 4 && (
+                <div className="space-y-4">
+                  <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-3 text-sm text-emerald-400 text-center">{info}</div>
+                  <button type="button" onClick={() => { setMode("login"); setError(""); setPw(""); resetForgotState(); }} className="ripple-btn w-full rounded-xl px-4 py-3 text-sm font-bold text-white shadow-lg transition" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
+                    {t.auth_back_login}
+                  </button>
+                </div>
+              )}
+              {forgotStep !== 4 && (
+                <div className="mt-4 text-center text-xs" style={{ color: "var(--text-mute)" }}>
+                  <button type="button" onClick={() => { setMode("login"); setError(""); resetForgotState(); }} className="font-semibold" style={{ color: "var(--primary)" }}>{t.auth_back_login}</button>
+                </div>
+              )}
+            </>
+          )}
+
           <p className="mt-4 text-center text-[10px]" style={{ color: "var(--text-mute)" }}>{t.auth_secure}</p>
           {onClose && <button onClick={onClose} className="mt-3 w-full text-xs" style={{ color: "var(--text-mute)" }}>{t.back_home}</button>}
         </div>
@@ -1029,26 +1210,117 @@ function Footer({ t, onNav }) {
 }
 
 /* ====== AI Chat Widget ====== */
+const CHAT_KB = {
+  ar: [
+    { kws: ["سعر", "أسعار", "تكلفة", "باق", "فلوس", "اشتراك", "تسعير"], reply: "الباقات تبدأ من ٧٩ ر.س/مستخدم شهريًا، مع تجربة مجانية ١٥ يوم بدون بطاقة ائتمان." },
+    { kws: ["ميزات", "مميزات", "تطبيقات", "يقدم", "بيعمل ايه", "بتقدم ايه"], reply: "نِكسوس يقدم أكثر من ٢٠ تطبيق متكامل: CRM، مبيعات، محاسبة، مخزون، موارد بشرية، تصنيع، وأكتر — كل ده مربوط بذكاء اصطناعي مدمج." },
+    { kws: ["تجربة", "مجاني", "trial", "تجريبي"], reply: "أيوه، متاحة تجربة مجانية لمدة ١٥ يوم على كل الباقات، بدون الحاجة لبطاقة ائتمان." },
+    { kws: ["أمان", "امان", "بيانات", "خصوصية", "حماية"], reply: "بياناتك في هذا العرض التجريبي محفوظة محليًا على جهازك فقط. في نسخة الإنتاج الحقيقية، نِكسوس يعتمد على تشفير كامل وخوادم متوافقة مع معايير الأمان العالمية." },
+    { kws: ["عربي", "لغة عرب", "arabic"], reply: "أيوه، المنصة والمساعد الذكي يدعموا العربية بالكامل، مع دعم الإنجليزية أيضًا." },
+    { kws: ["نقل", "ترحيل", "migrate", "استيراد بيانات"], reply: "فريق نِكسوس بيساعدك تنقل بياناتك من أنظمتك الحالية بسهولة، وفيه أدوات استيراد جاهزة لأكتر الصيغ الشائعة." },
+    { kws: ["مستخدم", "عدد الموظفين", "فريق"], reply: "تقدر تضيف عدد غير محدود من المستخدمين، والتسعير بيحسب حسب عدد المستخدمين النشطين في الباقة." },
+    { kws: ["تواصل", "دعم", "مبيعات", "contact", "اتصل"], reply: "تقدر تتواصل مع فريق المبيعات من قسم \"تواصل معنا\" في أسفل الصفحة، وهيردوا عليك في أقرب وقت." },
+    { kws: ["كمل", "استمر", "المزيد", "more", "continue"], reply: "بالطبع! تحب أشرحلك عن أي تطبيق بالتفصيل (زي CRM أو المحاسبة)، ولا عايز تعرف عن الأسعار أو الأمان؟" },
+    { kws: ["اهلا", "أهلا", "هاي", "hello", "hi", "hey", "السلام"], reply: "أهلاً بك! أنا هنا لمساعدتك في أي سؤال عن منصة نِكسوس. اسألني عن المميزات، الأسعار، أو أي تطبيق من التطبيقات." }
+  ],
+  en: [
+    { kws: ["price", "cost", "plan", "pricing", "subscription"], reply: "Plans start at $19/user per month, with a 15-day free trial and no credit card required." },
+    { kws: ["feature", "app", "offer", "what can"], reply: "Nexus offers 20+ integrated apps: CRM, sales, accounting, inventory, HR, manufacturing, and more — all connected with built-in AI." },
+    { kws: ["trial", "free", "demo"], reply: "Yes, a 15-day free trial is available on all plans, no credit card needed." },
+    { kws: ["secure", "security", "data", "privacy"], reply: "In this demo, your data stays locally on your device only. In a real production version, Nexus relies on full encryption and industry-standard secure infrastructure." },
+    { kws: ["arabic", "language"], reply: "Yes, the platform and the AI assistant fully support Arabic, alongside English." },
+    { kws: ["migrate", "migration", "import data"], reply: "The Nexus team helps you migrate your data from your current system easily, with ready-made import tools for common formats." },
+    { kws: ["users", "team size", "employees"], reply: "You can add an unlimited number of users; pricing scales with active users on your plan." },
+    { kws: ["contact", "support", "sales"], reply: "You can reach our sales team from the \"Contact\" section at the bottom of the page — we'll get back to you shortly." },
+    { kws: ["continue", "more", "go on"], reply: "Sure! Would you like details on a specific app (like CRM or Accounting), or info about pricing and security?" },
+    { kws: ["hello", "hi", "hey"], reply: "Hi there! I'm here to help with anything about the Nexus platform. Ask me about features, pricing, or any specific app." }
+  ]
+};
+function getChatReply(msg, lang) {
+  const lower = msg.toLowerCase();
+  const kb = CHAT_KB[lang] || CHAT_KB.en;
+  for (const entry of kb) {
+    if (entry.kws.some((k) => lower.includes(k.toLowerCase()))) return entry.reply;
+  }
+  return lang === "ar"
+    ? "شكرًا على سؤالك! ده عرض تجريبي بردود محدودة مسبقًا (وليس ذكاء اصطناعي حقيقي متصل بالإنترنت). جرب تسأل عن: المميزات، الأسعار، الأمان، أو التجربة المجانية."
+    : "Thanks for your question! This is a demo with pre-set responses (not a real connected AI). Try asking about: features, pricing, security, or the free trial.";
+}
+
+const NEXUS_AI_KEY_STORAGE = "nexus-ai-key-session";
+async function callClaudeAPI(apiKey, history, lang) {
+  const systemPrompt = lang === "ar"
+    ? "أنت المساعد الذكي لمنصة نِكسوس، منصة إدارة أعمال متكاملة (CRM، محاسبة، مخزون، موارد بشرية، وأكثر). رد بالعربية بشكل ودود ومختصر ومفيد."
+    : "You are the AI assistant for Nexus, an all-in-one business platform (CRM, accounting, inventory, HR, and more). Reply in English, friendly, concise, and helpful.";
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      "anthropic-dangerous-direct-browser-access": "true"
+    },
+    body: JSON.stringify({
+      model: "claude-sonnet-5",
+      max_tokens: 500,
+      system: systemPrompt,
+      messages: history.map((m) => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.content }))
+    })
+  });
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => null);
+    const errType = errBody && errBody.error && errBody.error.type;
+    throw new Error(errType || `http_${res.status}`);
+  }
+  const data = await res.json();
+  const textBlock = (data.content || []).find((b) => b.type === "text");
+  return textBlock ? textBlock.text : "";
+}
+
 function ChatWidget({ t, lang }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([{ role: "assistant", content: t.chat_welcome }]);
+  const [apiKey, setApiKey] = useState(() => { try { return sessionStorage.getItem(NEXUS_AI_KEY_STORAGE) || ""; } catch (e) { return ""; } });
+  const [showSettings, setShowSettings] = useState(false);
+  const [keyInput, setKeyInput] = useState("");
   const scrollRef = useRef(null);
   const inputRef = useRef(null);
   useEffect(() => { setMessages([{ role: "assistant", content: t.chat_welcome }]); }, [lang, t.chat_welcome]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading]);
   useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 250); }, [open]);
+
+  const saveKey = () => {
+    const k = keyInput.trim();
+    if (!k) return;
+    try { sessionStorage.setItem(NEXUS_AI_KEY_STORAGE, k); } catch (e) {}
+    setApiKey(k); setKeyInput(""); setShowSettings(false);
+  };
+  const clearKey = () => {
+    try { sessionStorage.removeItem(NEXUS_AI_KEY_STORAGE); } catch (e) {}
+    setApiKey(""); setShowSettings(false);
+  };
+
   const send = (text) => {
     const content = (text ?? input).trim(); if (!content || loading) return;
     const next = [...messages, { role: "user", content }]; setMessages(next); setInput(""); setLoading(true);
-    setTimeout(() => {
-      const replies = lang === "ar"
-        ? ["سؤال ممتاز! نِكسوس يقدم ٢٠+ تطبيق متكامل بذكاء اصطناعي مدمج.", "الباقات تبدأ من ٧٩ ر.س/مستخدم. تجربة مجانية ١٥ يوم.", "اضغط على أي تطبيق في قسم التطبيقات لتجربته مباشرة."]
-        : ["Great question! Nexus offers 20+ integrated apps with built-in AI.", "Plans start at $19/user. 15-day free trial available.", "Click any app in the Apps section to try it directly."];
-      const reply = replies[Math.floor(Math.random() * replies.length)];
-      setMessages([...next, { role: "assistant", content: reply }]); setLoading(false);
-    }, 900);
+
+    if (apiKey) {
+      callClaudeAPI(apiKey, next, lang)
+        .then((reply) => { setMessages([...next, { role: "assistant", content: reply || "…" }]); setLoading(false); })
+        .catch((err) => {
+          const msg = String(err.message || "");
+          const friendly = msg.includes("authentication") ? t.chat_key_invalid : t.chat_key_error;
+          setMessages([...next, { role: "assistant", content: friendly + " " + getChatReply(content, lang) }]);
+          setLoading(false);
+        });
+    } else {
+      setTimeout(() => {
+        const reply = getChatReply(content, lang);
+        setMessages([...next, { role: "assistant", content: reply }]); setLoading(false);
+      }, 900);
+    }
   };
   return (
     <>
@@ -1066,15 +1338,33 @@ function ChatWidget({ t, lang }) {
                 <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>
                   <Sparkles size={16} className="text-white" />
                 </div>
-                <div className="absolute -bottom-0.5 -end-0.5 w-3 h-3 bg-emerald-500 rounded-full" style={{ border: "2px solid var(--card)" }} />
+                <div className="absolute -bottom-0.5 -end-0.5 w-3 h-3 rounded-full" style={{ background: apiKey ? "#10b981" : "#94a3b8", border: "2px solid var(--card)" }} />
               </div>
               <div className="min-w-0">
                 <h3 className="font-bold text-sm truncate" style={{ color: "var(--text)" }}>{t.chat_title}</h3>
-                <p className="text-[10px] truncate" style={{ color: "var(--text-mute)" }}>{t.chat_sub}</p>
+                <p className="text-[10px] truncate" style={{ color: apiKey ? "#10b981" : "var(--text-mute)" }}>{apiKey ? t.chat_ai_live : t.chat_ai_demo}</p>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="p-2 rounded-lg hover:bg-[var(--bg-soft)]" style={{ color: "var(--text-mute)" }} aria-label="close"><X size={16} /></button>
+            <div className="flex items-center gap-1 shrink-0">
+              <button onClick={() => { setShowSettings((s) => !s); setKeyInput(""); }} className="p-2 rounded-lg hover:bg-[var(--bg-soft)]" style={{ color: "var(--text-mute)" }} aria-label="settings"><Settings size={15} /></button>
+              <button onClick={() => setOpen(false)} className="p-2 rounded-lg hover:bg-[var(--bg-soft)]" style={{ color: "var(--text-mute)" }} aria-label="close"><X size={16} /></button>
+            </div>
           </div>
+
+          {showSettings ? (
+            <div className="flex-1 overflow-y-auto p-4 space-y-3" style={{ background: "var(--bg-soft)" }}>
+              <h4 className="text-sm font-bold" style={{ color: "var(--text)" }}>{t.chat_settings}</h4>
+              <label className="block">
+                <span className="mb-1 block text-xs font-medium" style={{ color: "var(--text-soft)" }}>{t.chat_key_label}</span>
+                <input type="password" dir="ltr" value={keyInput} onChange={(e) => setKeyInput(e.target.value)} placeholder={t.chat_key_placeholder} className="w-full rounded-lg px-3 py-2.5 text-xs outline-none focus:ring-2" style={{ background: "var(--card)", border: "1px solid var(--border)", color: "var(--text)" }} />
+              </label>
+              <p className="text-[10px] leading-relaxed" style={{ color: "var(--text-mute)" }}>{t.chat_key_help}</p>
+              <button onClick={saveKey} disabled={!keyInput.trim()} className="ripple-btn w-full rounded-xl px-4 py-2.5 text-xs font-bold text-white shadow-lg transition disabled:opacity-60" style={{ background: "linear-gradient(135deg, var(--primary), var(--accent))" }}>{t.chat_key_save}</button>
+              {apiKey && (
+                <button onClick={clearKey} className="w-full rounded-xl px-4 py-2.5 text-xs font-semibold transition" style={{ border: "1px solid var(--border)", color: "var(--text-soft)" }}>{t.chat_key_clear}</button>
+              )}
+            </div>
+          ) : (
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3" style={{ background: "var(--bg-soft)" }}>
             {messages.map((m, i) => (
               <div key={i} className={`flex gap-2 max-w-[88%] ${m.role === "user" ? "ms-auto justify-end" : ""}`}>
@@ -1100,6 +1390,9 @@ function ChatWidget({ t, lang }) {
               </div>
             )}
           </div>
+          )}
+
+          {!showSettings && (
           <div className="p-3 border-t" style={{ borderColor: "var(--border)" }}>
             <form onSubmit={(e) => { e.preventDefault(); send(); }} className="flex items-center gap-2">
               <input ref={inputRef} type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder={t.chat_ph} disabled={loading} className="flex-1 rounded-full px-4 py-2.5 text-xs outline-none focus:ring-2 disabled:opacity-60" style={{ background: "var(--bg-soft)", color: "var(--text)" }} />
@@ -1109,6 +1402,7 @@ function ChatWidget({ t, lang }) {
             </form>
             <p className="text-[9px] text-center mt-2" style={{ color: "var(--text-mute)" }}>{t.chat_powered}</p>
           </div>
+          )}
         </div>
       )}
     </>
@@ -1282,6 +1576,18 @@ function AppView({ kind, t, lang, user, onBack }) {
   const title = titleMap[kind] || kind;
   const sub = subMap[kind] || "";
 
+  const colsForKind = kind === "inventory"
+    ? [["name",0],["qty",1],["price",2],["warehouse",3],["status",4]]
+    : kind === "accounting"
+    ? [["number",0],["client",1],["amount",2],["date",3],["status",4]]
+    : kind === "hr"
+    ? [["name",0],["role",1],["email",2],["status",3]]
+    : kind === "manufacturing"
+    ? [["number",0],["product",1],["qty",2],["status",3]]
+    : [["name",0],["desc",1],["value",2],["status",3]];
+  const colsLabelsSrc = kind === "inventory" ? t.inventory_cols : kind === "accounting" ? t.accounting_cols : kind === "hr" ? t.hr_cols : kind === "manufacturing" ? t.manufacturing_cols : t.generic_cols;
+  const tableCols = colsForKind.map(([key], i) => ({ key, label: colsLabelsSrc[i] }));
+
   if (!items) return <div className="flex h-screen items-center justify-center" style={{ color: "var(--text-mute)" }}>…</div>;
 
   const filtered = items.filter((it) => !search || Object.values(it).some((v) => String(v).toLowerCase().includes(search.toLowerCase())));
@@ -1335,20 +1641,22 @@ function AppView({ kind, t, lang, user, onBack }) {
               <table className="w-full text-sm">
                 <thead style={{ background: "var(--bg-soft)" }}>
                   <tr>
-                    {kind === "inventory" ? ["#","المنتج","الكمية","السعر","المستودع","الحالة",""].map((h,i) => <th key={i} className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}>{h}</th>)
-                      : kind === "accounting" ? ["#","رقم الفاتورة","العميل","المبلغ","التاريخ","الحالة",""].map((h,i) => <th key={i} className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}>{h}</th>)
-                      : kind === "hr" ? ["#","الاسم","الوظيفة","البريد","الحالة",""].map((h,i) => <th key={i} className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}>{h}</th>)
-                      : ["#","الاسم","الوصف","القيمة","الحالة",""].map((h,i) => <th key={i} className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}>{h}</th>)}
+                    <th className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}>#</th>
+                    {tableCols.map((c, i) => <th key={i} className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}>{c.label}</th>)}
+                    <th className="px-4 py-3 text-start font-semibold text-xs" style={{ color: "var(--text-soft)" }}></th>
                   </tr>
                 </thead>
                 <tbody>
                   {filtered.map((it, idx) => (
                     <tr key={it.id} className="border-t" style={{ borderColor: "var(--border)" }}>
                       <td className="px-4 py-3 text-xs" style={{ color: "var(--text-mute)" }}>{idx+1}</td>
-                      <td className="px-4 py-3 font-medium" style={{ color: "var(--text)" }}>{it.name || it.title || it.number}</td>
-                      <td className="px-4 py-3" style={{ color: "var(--text-soft)" }}>{it.desc || it.role || it.client || it.qty || it.warehouse || "—"}</td>
-                      <td className="px-4 py-3" style={{ color: "var(--text-soft)" }}>{it.value || it.price || it.amount || "—"}</td>
-                      <td className="px-4 py-3" style={{ color: "var(--text-soft)" }}>{it.status || it.date || it.email || "—"}</td>
+                      {tableCols.map((c, ci) => {
+                        const raw = it[c.key];
+                        const display = (raw === undefined || raw === null || raw === "") ? "—" : String(raw);
+                        return (
+                          <td key={ci} className={ci === 0 ? "px-4 py-3 font-medium" : "px-4 py-3"} style={{ color: ci === 0 ? "var(--text)" : "var(--text-soft)" }}>{display}</td>
+                        );
+                      })}
                       <td className="px-4 py-3">
                         <div className="flex gap-1">
                           <button onClick={() => { setEditing(it); setShowForm(true); }} className="p-1.5 rounded-lg hover:bg-[var(--bg-soft)]" style={{ color: "var(--text-soft)" }}><Edit size={14} /></button>
@@ -1434,6 +1742,9 @@ function ItemForm({ kind, t, lang, editing, onSave, onClose }) {
   ] : kind === "hr" ? [
     { key: "name", label: t.app_name }, { key: "role", label: lang === "ar" ? "الوظيفة" : "Role" },
     { key: "email", label: t.app_email }, { key: "status", label: t.app_status, type: "select-hrstatus" }
+  ] : kind === "manufacturing" ? [
+    { key: "number", label: lang === "ar" ? "أمر الإنتاج" : "Order #" }, { key: "product", label: lang === "ar" ? "المنتج" : "Product" },
+    { key: "qty", label: lang === "ar" ? "الكمية" : "Quantity", type: "number" }, { key: "status", label: t.app_status, type: "select-genstatus" }
   ] : [
     { key: "name", label: t.app_name }, { key: "desc", label: lang === "ar" ? "الوصف" : "Description" },
     { key: "value", label: t.app_value }, { key: "status", label: t.app_status, type: "select-genstatus" }
