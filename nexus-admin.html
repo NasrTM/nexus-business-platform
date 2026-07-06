@@ -825,6 +825,211 @@ function AnimatedCounter({ target, suffix = "", duration = 1800 }) {
   return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
 }
 
+/* ====== Hero Carousel ====== */
+function HeroCarousel({ isAr }) {
+  const [active, setActive] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const slides = [
+    {
+      tab: isAr ? "لوحة التحكم" : "Dashboard",
+      icon: TrendingUp,
+      label: isAr ? "nexus — dashboard" : "nexus — dashboard",
+      content: (
+        <div>
+          <div className="grid grid-cols-3 gap-2 mb-3">
+            {[
+              { l: isAr ? "الإيرادات" : "Revenue", v: "$124K", c: "+18%", icon: TrendingUp },
+              { l: isAr ? "مشاريع" : "Projects",  v: "42",    c: "+5",  icon: FolderKanban },
+              { l: isAr ? "الفريق"  : "Team",     v: "28",    c: "+3",  icon: Users },
+            ].map((k, i) => (
+              <div key={i} className="rounded-xl p-3" style={{ background: "var(--bg-soft)" }}>
+                <div className="flex items-center justify-between mb-1.5">
+                  <k.icon size={13} style={{ color: "var(--primary)" }} />
+                  <span className="text-[10px] font-bold text-emerald-500">{k.c}</span>
+                </div>
+                <p className="text-sm font-bold" style={{ color: "var(--text)" }}>{k.v}</p>
+                <p className="text-[10px]" style={{ color: "var(--text-mute)" }}>{k.l}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl p-3 mb-3" style={{ background: "var(--bg-soft)" }}>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-semibold" style={{ color: "var(--text)" }}>{isAr ? "تطور الإيرادات" : "Revenue Trend"}</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded font-bold" style={{ background: "color-mix(in srgb,var(--primary) 15%,transparent)", color: "var(--primary)" }}>+18.2%</span>
+            </div>
+            <div className="h-20 flex items-end gap-1" dir="ltr">
+              {[40,55,48,70,65,82,75,95,88,100,92,110].map((h,i) => (
+                <div key={i} className="flex-1 rounded-t-sm transition-all duration-700" style={{ height: `${h}%`, background: `linear-gradient(to top, var(--primary), var(--accent))`, opacity: i === 11 ? 1 : 0.4 + i * 0.05 }} />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-1.5">
+            {[
+              { icon: Users,       text: isAr ? "عميل جديد: Horizon Co." : "New lead: Horizon Co.",        time: "2m"  },
+              { icon: TrendingUp,  text: isAr ? "فاتورة INV-042 مدفوعة" : "Invoice INV-042 paid",          time: "15m" },
+              { icon: FolderKanban,text: isAr ? "مشروع نُقل لقيد التنفيذ" : "Task moved to In Progress",  time: "1h"  },
+            ].map((a,i) => (
+              <div key={i} className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg" style={{ background: "var(--bg-soft)" }}>
+                <div className="w-5 h-5 rounded-md flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb,var(--primary) 15%,transparent)" }}>
+                  <a.icon size={11} style={{ color: "var(--primary)" }} />
+                </div>
+                <span className="text-[11px] flex-1" style={{ color: "var(--text-soft)" }}>{a.text}</span>
+                <span className="text-[10px]" style={{ color: "var(--text-mute)" }}>{a.time}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      tab: isAr ? "CRM" : "CRM",
+      icon: Users,
+      label: isAr ? "nexus — CRM" : "nexus — CRM",
+      content: (
+        <div>
+          <div className="grid grid-cols-3 gap-2 mb-3" dir="ltr">
+            {[
+              { stage: "Lead",        color: "#6366f1", count: 8,  val: "$42K" },
+              { stage: "Negotiating", color: "#f59e0b", count: 5,  val: "$88K" },
+              { stage: "Won ✓",       color: "#10b981", count: 12, val: "$210K" },
+            ].map((col, ci) => (
+              <div key={ci} className="rounded-xl p-2.5" style={{ background: "var(--bg-soft)" }}>
+                <div className="text-[10px] font-bold mb-2 px-1.5 py-0.5 rounded-full inline-block" style={{ background: `${col.color}22`, color: col.color }}>{col.stage}</div>
+                {Array.from({ length: Math.min(col.count, 3) }).map((_, ri) => (
+                  <div key={ri} className="rounded-lg px-2 py-1.5 mb-1.5 text-[10px]" style={{ background: "var(--card)", color: "var(--text-soft)" }}>
+                    {isAr ? `عميل ${ci * 3 + ri + 1}` : `Client ${ci * 3 + ri + 1}`}
+                  </div>
+                ))}
+                <div className="text-[10px] font-bold mt-2" style={{ color: col.color }}>{col.val}</div>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl p-3" style={{ background: "var(--bg-soft)" }}>
+            <div className="text-xs font-semibold mb-2" style={{ color: "var(--text)" }}>{isAr ? "أفضل العملاء" : "Top Leads"}</div>
+            {[
+              { name: "Horizon Co.",    score: 92, color: "#10b981" },
+              { name: "Tech Solutions", score: 78, color: "#6366f1" },
+              { name: "Lamsa Group",    score: 65, color: "#f59e0b" },
+            ].map((l,i) => (
+              <div key={i} className="flex items-center gap-2 mb-1.5">
+                <span className="text-[10px] w-24 truncate" style={{ color: "var(--text-soft)" }}>{l.name}</span>
+                <div className="flex-1 h-1.5 rounded-full" style={{ background: "var(--border)" }}>
+                  <div className="h-1.5 rounded-full transition-all duration-1000" style={{ width: `${l.score}%`, background: l.color }} />
+                </div>
+                <span className="text-[10px] font-bold w-6 text-end" style={{ color: l.color }}>{l.score}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      tab: isAr ? "المحاسبة" : "Accounting",
+      icon: TrendingUp,
+      label: isAr ? "nexus — accounting" : "nexus — accounting",
+      content: (
+        <div>
+          <div className="grid grid-cols-2 gap-2 mb-3">
+            {[
+              { l: isAr ? "الإيرادات" : "Revenue",  v: "$312K", c: "+22%", color: "#10b981" },
+              { l: isAr ? "المصروفات" : "Expenses",  v: "$188K", c: "-8%",  color: "#f59e0b" },
+              { l: isAr ? "صافي الربح" : "Net Profit",v: "$124K", c: "+18%", color: "#6366f1" },
+              { l: isAr ? "مستحقة" : "Receivables",  v: "$45K",  c: "3 inv",color: "#e879f9" },
+            ].map((k,i) => (
+              <div key={i} className="rounded-xl p-3" style={{ background: "var(--bg-soft)" }}>
+                <p className="text-sm font-bold" style={{ color: k.color }}>{k.v}</p>
+                <p className="text-[10px]" style={{ color: "var(--text-mute)" }}>{k.l}</p>
+                <span className="text-[10px] font-bold" style={{ color: k.color }}>{k.c}</span>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl p-3" style={{ background: "var(--bg-soft)" }}>
+            <div className="text-xs font-semibold mb-2" style={{ color: "var(--text)" }}>{isAr ? "آخر الفواتير" : "Recent Invoices"}</div>
+            {[
+              { num: "INV-043", client: "Horizon Co.",    amt: "$45,000", status: isAr ? "مدفوعة" : "Paid",    color: "#10b981" },
+              { num: "INV-044", client: "Tech Solutions", amt: "$12,000", status: isAr ? "مرسلة" : "Sent",     color: "#6366f1" },
+              { num: "INV-045", client: "Lamsa Group",    amt: "$78,000", status: isAr ? "مسودة" : "Draft",    color: "#f59e0b" },
+            ].map((inv,i) => (
+              <div key={i} className="flex items-center gap-2 px-2 py-1.5 rounded-lg mb-1" style={{ background: "var(--card)" }}>
+                <span className="text-[10px] font-mono font-bold w-14" style={{ color: "var(--primary)" }}>{inv.num}</span>
+                <span className="text-[10px] flex-1 truncate" style={{ color: "var(--text-soft)" }}>{inv.client}</span>
+                <span className="text-[10px] font-bold" style={{ color: "var(--text)" }}>{inv.amt}</span>
+                <span className="text-[9px] px-1.5 py-0.5 rounded-full font-bold" style={{ background: `${inv.color}22`, color: inv.color }}>{inv.status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnimating(true);
+      setTimeout(() => {
+        setActive(prev => (prev + 1) % slides.length);
+        setAnimating(false);
+      }, 300);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const go = (i) => { setAnimating(true); setTimeout(() => { setActive(i); setAnimating(false); }, 300); };
+  const ActiveIcon = slides[active].icon;
+
+  return (
+    <div className="relative">
+      {/* نافذة الماك */}
+      <div className="rounded-2xl shadow-2xl overflow-hidden" style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
+        {/* شريط العنوان */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b" style={{ background: "var(--bg-soft)", borderColor: "var(--border)" }}>
+          <div className="w-3 h-3 rounded-full bg-rose-400" />
+          <div className="w-3 h-3 rounded-full bg-yellow-400" />
+          <div className="w-3 h-3 rounded-full bg-emerald-400" />
+          <div className="flex-1 mx-3 px-3 py-1 rounded-md text-center text-[10px] font-medium" style={{ background: "var(--bg)", color: "var(--text-mute)" }}>
+            {slides[active].label}
+          </div>
+        </div>
+
+        {/* تبويبات */}
+        <div className="flex border-b px-3 pt-2 gap-1" style={{ borderColor: "var(--border)" }}>
+          {slides.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <button key={i} onClick={() => go(i)} className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-semibold rounded-t-lg transition-all" style={active === i ? { background: "var(--card)", color: "var(--primary)", borderBottom: "2px solid var(--primary)" } : { color: "var(--text-mute)" }}>
+                <Icon size={11} />{s.tab}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* المحتوى */}
+        <div className="p-4 transition-all duration-300" style={{ opacity: animating ? 0 : 1, transform: animating ? "translateY(6px)" : "translateY(0)" }}>
+          {slides[active].content}
+        </div>
+      </div>
+
+      {/* نقاط التنقل */}
+      <div className="flex justify-center gap-2 mt-4">
+        {slides.map((_, i) => (
+          <button key={i} onClick={() => go(i)} className="rounded-full transition-all duration-300" style={{ width: active === i ? 20 : 8, height: 8, background: active === i ? "var(--primary)" : "var(--border)" }} />
+        ))}
+      </div>
+
+      {/* Floating badge */}
+      <div className="absolute -top-4 -end-4 px-3 py-2 rounded-xl shadow-lg text-xs font-bold text-white z-10" style={{ background: "linear-gradient(135deg,var(--primary),var(--accent))" }}>
+        <Sparkles size={12} className="inline me-1" />{isAr ? "ذكاء اصطناعي متصل" : "AI Connected"}
+      </div>
+      {/* Floating notification */}
+      <div className="absolute -bottom-8 -start-4 px-3 py-2 rounded-xl shadow-lg text-xs font-semibold flex items-center gap-2 z-10" style={{ background: "var(--card)", border: "1px solid var(--border)", color: "var(--text)" }}>
+        <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 animate-pulse" />
+        {isAr ? "٣ مهام مكتملة اليوم" : "3 tasks done today"}
+      </div>
+    </div>
+  );
+}
+
 /* ====== Hero ====== */
 function Hero({ t, lang, onNav }) {
   const Arrow = lang === "ar" ? ArrowLeft : ArrowRight;
@@ -872,73 +1077,9 @@ function Hero({ t, lang, onNav }) {
             </div>
           </div>
 
-          {/* Dashboard Preview — Hero Visual */}
+          {/* Dashboard Preview — Rotating Hero Visual */}
           <div className="hidden lg:block fade-up" style={{ animationDelay: "0.15s" }}>
-            <div className="relative">
-              {/* بطاقة رئيسية */}
-              <div className="rounded-2xl p-5 shadow-2xl" style={{ background: "var(--card)", border: "1px solid var(--border)" }}>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-rose-400" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                  <span className="text-xs mx-auto font-medium" style={{ color: "var(--text-mute)" }}>nexus — dashboard</span>
-                </div>
-                {/* KPI Row */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  {[
-                    { l: isAr ? "الإيرادات" : "Revenue", v: "$124K", c: "+18%", icon: TrendingUp },
-                    { l: isAr ? "مشاريع" : "Projects", v: "42", c: "+5", icon: FolderKanban },
-                    { l: isAr ? "الفريق" : "Team", v: "28", c: "+3", icon: Users },
-                  ].map((k, i) => (
-                    <div key={i} className="rounded-xl p-3" style={{ background: "var(--bg-soft)" }}>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <k.icon size={14} style={{ color: "var(--primary)" }} />
-                        <span className="text-[10px] font-bold text-emerald-500">{k.c}</span>
-                      </div>
-                      <p className="text-base font-bold" style={{ color: "var(--text)" }}>{k.v}</p>
-                      <p className="text-[10px]" style={{ color: "var(--text-mute)" }}>{k.l}</p>
-                    </div>
-                  ))}
-                </div>
-                {/* Mini Chart */}
-                <div className="rounded-xl p-3 mb-3" style={{ background: "var(--bg-soft)" }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold" style={{ color: "var(--text)" }}>{isAr ? "تطور الإيرادات" : "Revenue Trend"}</span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded font-bold" style={{ background: "color-mix(in srgb,var(--primary) 15%,transparent)", color: "var(--primary)" }}>+18.2%</span>
-                  </div>
-                  <div className="h-20 flex items-end gap-1" dir="ltr">
-                    {[40,55,48,70,65,82,75,95,88,100,92,110].map((h,i) => (
-                      <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, background: `linear-gradient(to top, var(--primary), var(--accent))`, opacity: i === 11 ? 1 : 0.5 + i * 0.04 }} />
-                    ))}
-                  </div>
-                </div>
-                {/* Recent Activity */}
-                <div className="space-y-2">
-                  {[
-                    { icon: Users, text: isAr ? "عميل جديد: Horizon Co." : "New lead: Horizon Co.", time: "2m" },
-                    { icon: TrendingUp, text: isAr ? "فاتورة INV-042 مدفوعة" : "Invoice INV-042 paid", time: "15m" },
-                    { icon: FolderKanban, text: isAr ? "مشروع نُقل إلى قيد التنفيذ" : "Project moved to In Progress", time: "1h" },
-                  ].map((a,i) => (
-                    <div key={i} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg" style={{ background: "var(--bg-soft)" }}>
-                      <div className="w-6 h-6 rounded-md flex items-center justify-center shrink-0" style={{ background: "color-mix(in srgb,var(--primary) 15%,transparent)" }}>
-                        <a.icon size={12} style={{ color: "var(--primary)" }} />
-                      </div>
-                      <span className="text-[11px] flex-1" style={{ color: "var(--text-soft)" }}>{a.text}</span>
-                      <span className="text-[10px]" style={{ color: "var(--text-mute)" }}>{a.time}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Floating badge */}
-              <div className="absolute -top-4 -end-4 px-3 py-2 rounded-xl shadow-lg text-xs font-bold text-white" style={{ background: "linear-gradient(135deg,var(--primary),var(--accent))" }}>
-                <Sparkles size={12} className="inline me-1" />{isAr ? "ذكاء اصطناعي متصل" : "AI Connected"}
-              </div>
-              {/* Floating notification */}
-              <div className="absolute -bottom-4 -start-4 px-3 py-2 rounded-xl shadow-lg text-xs font-semibold flex items-center gap-2" style={{ background: "var(--card)", border: "1px solid var(--border)", color: "var(--text)" }}>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-                {isAr ? "٣ مهام مكتملة اليوم" : "3 tasks done today"}
-              </div>
-            </div>
+            <HeroCarousel isAr={isAr} />
           </div>
         </div>
       </div>
